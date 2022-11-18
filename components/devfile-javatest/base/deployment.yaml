@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: devfile-javatest
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: devfile-javatest
+    app.kubernetes.io/part-of: test-application
+  name: devfile-javatest
+  namespace: appstudio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: devfile-javatest
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: devfile-javatest
+    spec:
+      containers:
+      - image: quay.io/karthik_jk/devfile-javatest
+        imagePullPolicy: Always
+        name: container-image
+        resources: {}
+status: {}
